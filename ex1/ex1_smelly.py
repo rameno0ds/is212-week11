@@ -33,6 +33,7 @@ class OrderProcessor:
             receipt += f"- {item['name']}: {item['quantity']} x ${item['price']}\n"
         receipt += f"Total: ${total_price:.2f}\n"
         return receipt
+    
     def process_order(self, order):
         # Step 1: Validate order details
         self.validate_order(order)
