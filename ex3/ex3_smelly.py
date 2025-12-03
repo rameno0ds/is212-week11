@@ -1,10 +1,9 @@
-class Products:
-    def __init__(self, name, price):
+class Product:
+    def __init__(self, name, price, discount_rate, tax_rate):
         self.name = name
         self.price = price
-
-    discount_rate = 0.0
-    tax_rate = 0.0
+        self.discount_rate = discount_rate
+        self.tax_rate = tax_rate
 
     def apply_discount(self):
         discounted_price = self.price - (self.price * self.discount_rate)
@@ -17,15 +16,14 @@ class Products:
         return tax
 
 
-class Electronics(Products):
-    discount_rate = 0.10  # 10% discount
-    tax_rate = 0.15  # 15% tax
+class Electronics(Product):
+    def __init__(self, name, price):
+        super().__init__(name, price, discount_rate=0.10, tax_rate=0.15)
 
-class Clothing(Products):
-    discount_rate = 0.20  # 20% discount
-    tax_rate = 0.08  # 8% tax
+class Clothing(Product):
+    def __init__(self, name, price):
+        super().__init__(name, price, discount_rate=0.20, tax_rate=0.08)
 
-class Grocery(Products):
-    discount_rate = 0.05  # 5% discount
-    tax_rate = 0.02  # 2% tax
-
+class Grocery(Product):
+    def __init__(self, name, price):
+        super().__init__(name, price, discount_rate=0.05, tax_rate=0.02)
